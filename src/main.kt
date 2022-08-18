@@ -20,6 +20,35 @@ fun main() {
     println(contaFran.titular)
     println(contaFran.numero)
     println(contaFran.saldo)
+
+    val numeroX = 10
+    var numeroY = numeroX
+    numeroY++
+
+    println("numeroX $numeroX")
+    println("numeroY $numeroY")
+
+/*
+    Referencias, ou seja, espaço reservados na memórian o momento em que definimos em que a conta Mária tinha o valor
+    presente da conta João, o João aponta para conta e por consequência a Maria também aponta para Conta(), quando
+    alteramos alguma coisa presente do titular acabamos alterando o mesmo objeto, tome cuidado na atribuição pois não
+    se trata de uma cópia, mas uma referencia a o espaço da memória
+*/
+
+    val contaJoao = Conta()
+    contaJoao.titular = "João"
+    var contaMaria = contaJoao
+    contaMaria.titular = "Maria"
+
+    println("titular conta joão: ${contaJoao.titular}")
+    println("titular conta Maria: ${contaMaria.titular}")
+
+/*
+    Print da classe + hash da alocação de memória, porém se utilizarmos uma instacia com um novo objeto, ele aponta
+    para um novo espaço de memoria, mudando o hash.
+*/
+    println(contaJoao)
+    println(contaMaria)
 }
 
 class Conta () {
